@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinControl | Criar conta</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/cabecalho.css">
+  <link rel="stylesheet" href="assets/css/formulario.css">
+  <link rel="stylesheet" href="assets/css/rodape.css">
+  <link rel="stylesheet" href="assets/css/responsividade.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.svg" alt="Logo do FinControl">
+        FinControl
+      </a>
+      <a href="login.html" class="botao botao-branco">Entrar</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="caixa-central">
+      <div class="formulario">
+        <h2>Criar minha conta</h2>
+
+        <div class="mensagem-erro escondido" id="mensagemErro"></div>
+
+        <div class="campo">
+          <label for="nome">Nome (*)</label>
+          <input type="text" id="nome" placeholder="Informe seu nome">
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail (*)</label>
+          <input type="email" id="email" placeholder="Informe seu e-mail">
+        </div>
+
+        <div class="campo">
+          <label for="senha">Senha (*)</label>
+          <input type="password" id="senha" placeholder="Crie uma senha">
+        </div>
+
+        <div class="botoes-formulario">
+          <button class="botao botao-verde" onclick="cadastrar()">Cadastrar</button>
+        </div>
+      </div>
+      <p class="texto-rodape">Já tem uma conta? <a href="login.html">Entrar</a></p>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <span class="logo">FinControl</span>
+      <span>Trabalho Interdisciplinar, ICEI PUC Minas</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/funcionalidades.js"></script>
+</body>
+</html>

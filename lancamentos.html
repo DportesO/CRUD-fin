@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinControl | Lançamentos</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/cabecalho.css">
+  <link rel="stylesheet" href="assets/css/corpo.css">
+  <link rel="stylesheet" href="assets/css/cartao.css">
+  <link rel="stylesheet" href="assets/css/formulario.css">
+  <link rel="stylesheet" href="assets/css/tabela.css">
+  <link rel="stylesheet" href="assets/css/rodape.css">
+  <link rel="stylesheet" href="assets/css/responsividade.css">
+</head>
+<body>
+
+  <!-- Cabeçalho com o usuário logado -->
+  <header class="cabecalho">
+    <div class="container">
+      <a href="lancamentos.html" class="logo">
+        <img src="assets/img/logo.svg" alt="Logo do FinControl">
+        FinControl
+      </a>
+      <nav>
+        <ul class="menu">
+          <li><a href="lancamentos.html" class="ativo">Lançamentos</a></li>
+        </ul>
+      </nav>
+      <div class="area-usuario">
+        <div class="avatar" id="iniciaisUsuario">--</div>
+        <span class="nome-usuario" id="nomeUsuario">Usuário</span>
+        <button class="botao botao-branco" onclick="sair()">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <h1 class="titulo-pagina" id="saudacao">Olá</h1>
+    <p class="subtitulo-pagina">Registre suas receitas e despesas e acompanhe quanto ainda resta no mês.</p>
+
+    <!-- Cartões de resumo -->
+    <section class="resumo">
+      <div class="cartao">
+        <p class="rotulo">Total de receitas</p>
+        <p class="valor valor-verde" id="totalReceitas">R$ 0,00</p>
+      </div>
+      <div class="cartao">
+        <p class="rotulo">Total de despesas</p>
+        <p class="valor valor-laranja" id="totalDespesas">R$ 0,00</p>
+      </div>
+      <div class="cartao">
+        <p class="rotulo">Saldo</p>
+        <p class="valor" id="saldo">R$ 0,00</p>
+      </div>
+    </section>
+
+    <section class="duas-colunas">
+
+      <!-- Formulário de lançamento -->
+      <div class="coluna-menor">
+        <div class="formulario">
+          <h2 id="tituloFormulario">Novo lançamento</h2>
+
+          <!-- guarda o código do lançamento quando estamos editando -->
+          <input type="hidden" id="id">
+
+          <div class="mensagem-erro escondido" id="mensagemErro"></div>
+
+          <div class="campo">
+            <label for="tipo">Tipo</label>
+            <select id="tipo">
+              <option value="receita">Receita</option>
+              <option value="despesa">Despesa</option>
+            </select>
+          </div>
+
+          <div class="linha-campos">
+            <div class="campo">
+              <label for="valor">Valor (*)</label>
+              <input type="number" id="valor" step="0.01" placeholder="0,00">
+            </div>
+            <div class="campo">
+              <label for="data">Data (*)</label>
+              <input type="date" id="data">
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="categoria">Categoria (*)</label>
+            <select id="categoria">
+              <option value="">Selecione a categoria</option>
+              <option>Alimentação</option>
+              <option>Transporte</option>
+              <option>Lazer</option>
+              <option>Moradia</option>
+              <option>Salário</option>
+              <option>Renda extra</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="descricao">Descrição</label>
+            <input type="text" id="descricao" placeholder="Ex.: lanche na faculdade">
+          </div>
+
+          <div class="botoes-formulario">
+            <button class="botao botao-branco" onclick="limparFormulario()">Limpar</button>
+            <button class="botao botao-verde" onclick="salvar()">Salvar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de lançamentos -->
+      <div class="coluna-maior">
+        <div class="cartao">
+          <h3>Meus lançamentos</h3>
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Tipo</th>
+                <th class="direita">Valor</th>
+                <th class="direita">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaLancamentos"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <span class="logo">FinControl</span>
+      <span>Trabalho Interdisciplinar, ICEI PUC Minas</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/funcionalidades.js"></script>
+</body>
+</html>
